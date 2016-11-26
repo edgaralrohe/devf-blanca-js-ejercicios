@@ -16,7 +16,7 @@
     <option value="tijeras"> Tijeras </option>
   </select>
 
-  <button onclick="jugar();">
+  <button onclick="jugar()";>
     JUGAR
   </button>
 
@@ -25,26 +25,46 @@
   <script>
     function jugar() {
       var items = ["piedra", "papel", "tijeras"];
-      //             0      ,  1     ,    2
-
-      var seleccion_maquina = items[0]; // siempre piedra
+      var seleccion_maquina = items[0];
       var seleccion_jugador = document.querySelector("#seleccion").value;
 
-      var ganador = definir_ganador(seleccion_jugador, seleccion_maquina);
-      dibujar(ganador);
+
+
+      var reglas= {
+        piedra: {papel:"pierde",tijeras:"gana"},
+        papel: {tijeras:"pierde", piedra:"gana"},
+        tijeras:{piedra: "pierde", papel: "papel"}
+
+      };
+
+      var ganador = definir_ganador(seleccion_jugador, seleccion_maquina, reglas);
+      dibujar("la maquina escogio:"+ seleccion_maquina +",por lo tanto" +
+      ganador);
     }
 
-    function definir_ganador(s_jugador, s_maquina){
+    function definir_ganador(s_jugador, s_maquina, reglas){
       // Completar lógica del juego
       var resultado;
       if(s_maquina == s_jugador){
-        resultado = "empate";
+        return "empate";
       }
-      return resultado;
+
+      var regla= reglas[s_jugador]
+      console.log(regla)
+      return regla[s_maquina]
     }
+
 
     function dibujar(valor){
       document.querySelector("#resultado").innerHTML = valor;
+    }
+
+
+    function maquina_escoge(items){
+      var n_random= Math.floor(Math.random() *3);
+      //0, 1, 2
+      //Math.random->0.0001-> 0.99999-
+      //Math.random->/Math floor/ Math.ceil/ Math
     }
 
     // function agregar_a_reusltado(valor){

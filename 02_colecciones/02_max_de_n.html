@@ -17,12 +17,18 @@
     <script>
 
         function max_de_n(numeros) {
-          var maximo;
+          var maximo=0;
 
           /*
             Ejercicio: `numeros` es un array de números. Usa un
             bucle `for` para encontrar el máximo.
            */
+           for(i in numeros){
+            var n_actual=numeros[i];
+            if(n_actual>maximo){
+              maximo= n_actual;
+            }
+           }
 
           return maximo;
         }

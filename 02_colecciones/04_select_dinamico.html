@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Select dinamico</title>
+    <link rel="stylesheet" href="../_recursos/main.css">
+  </head>
+  <body>
+    <h1>Select dinamico</h1>
+
+
+    Selecciona un pais:
+    <select name="pais" id="pais"></select>
+    <select name="presidentes" id="presidentes">
+    
+    </select>
+
+    <script>
+    var paises= ["Mexico", "Estados Unidos", "Cuba", "Canada"];
+    var select= document.querySelector("#pais");
+    var selecty= document.querySelector("#presidentes")
+
+    //ciclos/ loop / bucles
+    for(i in paises){
+      console.log(i)
+      var pais=paises[i];
+      select.innerHTML+="<option value''>"+ pais+"</option>"
+
+      //hacer algo
+
+    }
+
+    var presidentes={
+      "Mexico": "Super Raton",
+      "Estados Unidos": "Kevin Dotcom",
+      "Cuba": "Tito fuentes",
+      "Canada": "Justin trudeau"
+    };
+
+    for(bueno in presidentes){
+      var presidente=presidentes[bueno];
+      selecty.innerHTML+="<option value=''>"+presidente+"</option>";
+
+    }
+
+
+    </script>
+
+  </body>
+</html>
